@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TemanHijrah</string>
+    <string name="teman_hijrah">Teman Hijrah</string>
+    <string name="daftar">Daftar</string>
+    <string name="masuk">Masuk</string>
+    <string name="atau_masuk_dengan">Atau masuk dengan</string>
+    <string name="app_logo">app logo</string>
+    <string name="caligraphy">caligraphy</string>
+</resources>
