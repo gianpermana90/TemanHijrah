@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="30dp"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="30dp"
         tools:layout_editor_absoluteY="30dp">
@@ -20,7 +20,6 @@
             android:id="@+id/teman_hijrah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="84dp"
             android:fontFamily="@font/nunito_sans_bold"
             android:text="@string/teman_hijrah"
             android:textAlignment="center"
@@ -34,6 +33,7 @@
         <RelativeLayout
             android:id="@+id/logo"
             android:layout_width="match_parent"
+            android:gravity="center"
             android:layout_height="0dp"
             android:layout_weight="1">
 
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/daftar"
+                android:id="@+id/daftar_akun"
                 style="?android:attr/buttonBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,7 +71,8 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 tools:ignore="MissingConstraints"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:onClick="launchRegister"/>
 
             <Button
                 android:id="@+id/masuk"

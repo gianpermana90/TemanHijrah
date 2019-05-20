@@ -6,4 +6,16 @@
     <string name="atau_masuk_dengan">Atau masuk dengan</string>
     <string name="app_logo">app logo</string>
     <string name="caligraphy">caligraphy</string>
+    <string name="daftar_akun">Daftar Akun</string>
+    <string name="nama">Nama</string>
+    <string name="email">Email</string>
+    <string name="tanggal_lahir">Tanggal Lahir</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="pria">Pria</string>
+    <string name="wanita">Wanita</string>
+    <string name="date_pick">dd/mm/yy</string>
+    <string name="password">Kata Sandi</string>
+    <string name="confirm_password">Ulang Kata Sandi</string>
+    <string name="terms_and_condition"><u>Setujui ketentuan layanan dan kebijakan privasi</u></string>
 </resources>
