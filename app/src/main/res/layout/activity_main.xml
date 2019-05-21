@@ -85,7 +85,8 @@
                 android:textAllCaps="false"
                 android:textColor="#ffffff"
                 android:textSize="18sp"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:onClick="launchLogin"/>
         </LinearLayout>
 
         <LinearLayout

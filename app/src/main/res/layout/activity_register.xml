@@ -218,7 +218,8 @@
                 android:text="@string/daftar"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:onClick="register"/>
 
         </LinearLayout>
 

@@ -17,22 +17,10 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_weight="1">
-
                 <ImageView
-                    android:id="@+id/exclude"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/app_logo"
-                    android:src="@drawable/exclude" />
-
-                <ImageView
-                    android:id="@+id/caligraphy"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/exclude"
-                    android:layout_marginBottom="83dp"
-                    android:contentDescription="@string/caligraphy"
-                    android:src="@drawable/calligraphy_40586_960_720" />
+                    android:src="@drawable/logo_mini"/>
             </RelativeLayout>
 
         <LinearLayout
@@ -166,7 +154,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_sans_extrabold"
                 android:text="@string/register_now"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorPrimary"
+                android:onClick="launchRegister"/>
         </LinearLayout>
 
     </LinearLayout>
