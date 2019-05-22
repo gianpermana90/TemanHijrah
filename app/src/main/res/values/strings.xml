@@ -26,4 +26,10 @@
     <string name="register_now">Daftar Sekarang</string>
     <string name="alhamdulillah">Alhamdulillah</string>
     <string name="register_description">Akun anda telah berhasil dibuat, silahkan lakukan login dan semoga menjadi lebih istiqomah</string>
+    <string name="lupa">Lupa Password</string>
+    <string name="lupa_description">Silahkan masukkan email\nanda yang telah terdaftar</string>
+    <string name="kirim">Kirim</string>
+    <string name="email_terkirim">Email terkirim</string>
+    <string name="forgot_complete_description">Silahkan cek email anda untuk melakukan konfirmasi reset password</string>
+    <string name="kembali_ke_login">Kembali ke login</string>
 </resources>

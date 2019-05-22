@@ -119,7 +119,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/lupa_password"
                     android:fontFamily="@font/nunito_sans_semibold"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/colorPrimary"
+                    android:onClick="launchLupaPassword"/>
             </LinearLayout>
 
             <Button

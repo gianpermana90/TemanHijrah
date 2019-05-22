@@ -17,4 +17,9 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(this, Register.class);
         startActivity(intent);
     }
+
+    public void launchLupaPassword(View view) {
+        Intent intent = new Intent(this, forgotPassword.class);
+        startActivity(intent);
+    }
 }
