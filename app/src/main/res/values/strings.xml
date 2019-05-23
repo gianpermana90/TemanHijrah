@@ -32,4 +32,13 @@
     <string name="email_terkirim">Email terkirim</string>
     <string name="forgot_complete_description">Silahkan cek email anda untuk melakukan konfirmasi reset password</string>
     <string name="kembali_ke_login">Kembali ke login</string>
+    <string name="akun">Akun</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="simpan_perubahan">Simpan Perubahan</string>
+    <string name="ubah_password">Ubah Kata Sandi</string>
+    <string name="kata_sandi_lama">Kata sandi lama</string>
+    <string name="kata_sandi_baru">Kata sandi baru</string>
+    <string name="ulangi_kata_sandi_baru">Ulangi kata sandi baru</string>
+    <string name="ganti_kata_sandi">Ganti Kata Sandi</string>
+    <string name="deskripsi">Aplikasi muslim dengan banyak fitur sebagai pendamping dan fasilitas untuk membantu dalam proses hijrah, aplikasi muslim yang juga menghubungkan teman-teman hijrah dengan Al-qur\'an</string>
 </resources>
