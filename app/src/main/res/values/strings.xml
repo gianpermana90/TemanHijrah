@@ -41,4 +41,10 @@
     <string name="ulangi_kata_sandi_baru">Ulangi kata sandi baru</string>
     <string name="ganti_kata_sandi">Ganti Kata Sandi</string>
     <string name="deskripsi">Aplikasi muslim dengan banyak fitur sebagai pendamping dan fasilitas untuk membantu dalam proses hijrah, aplikasi muslim yang juga menghubungkan teman-teman hijrah dengan Al-qur\'an</string>
+    <string name="ulasan_balik">Ulasan balik</string>
+    <string name="tentang_kami">Tentang kami</string>
+    <string name="bagikan">Bagikan</string>
+    <string name="instagram">Follow us on Instagram</string>
+    <string name="facebook">Like us on Facebook</string>
+    <string name="logout">Logout</string>
 </resources>
