@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/navigation_quran"
+        android:icon="@drawable/quran"
+        android:title="@string/quran" />
+
+    <item
+        android:id="@+id/navigation_doa"
+        android:icon="@drawable/doa"
+        android:title="@string/doa" />
+
+    <item
+        android:id="@+id/navigation_hafalan"
+        android:icon="@drawable/mic"
+        android:title="@string/hafalan" />
+
+    <item
+        android:id="@+id/navigation_fav"
+        android:icon="@drawable/fav"
+        android:title="@string/favorite" />
+
+</menu>

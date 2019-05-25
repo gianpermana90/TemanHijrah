@@ -107,11 +107,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <RadioButton
+                <CheckBox
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/ingat_saya"
                     android:textColor="@color/colorPrimary"
+                    android:buttonTint="@color/colorPrimary"
                     android:fontFamily="@font/nunito_sans_bold"
                     android:layout_weight="1"/>
                 <TextView
@@ -131,7 +132,8 @@
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:fontFamily="@font/nunito_sans_bold"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:onClick="launchBeranda"/>
 
         </LinearLayout>
 

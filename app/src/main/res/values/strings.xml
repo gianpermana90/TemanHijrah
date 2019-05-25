@@ -47,4 +47,13 @@
     <string name="instagram">Follow us on Instagram</string>
     <string name="facebook">Like us on Facebook</string>
     <string name="logout">Logout</string>
+    <string name="home">home</string>
+    <string name="quran">quran</string>
+    <string name="doa">doa</string>
+    <string name="hafalan">hafalan</string>
+    <string name="favorite">favorite</string>
+    <string name="title_activity_beranda">Beranda</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
