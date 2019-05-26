@@ -22,8 +22,8 @@ public class Beranda extends AppCompatActivity {
                     fragment = new FragmentMain();
                     break;
                 case R.id.navigation_quran:
-                    mTextMessage.setText(R.string.quran);
-                    return true;
+                    fragment = new FragmentQuran();
+                    break;
                 case R.id.navigation_doa:
                     mTextMessage.setText(R.string.doa);
                     return true;
