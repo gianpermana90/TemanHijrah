@@ -103,6 +103,7 @@
                         android:textColor="#6F6F6F" />
 
                     <Button
+                        android:id="@+id/date_picker"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/date_picker_button"

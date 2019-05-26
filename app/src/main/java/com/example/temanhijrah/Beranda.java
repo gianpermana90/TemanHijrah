@@ -66,4 +66,9 @@ public class Beranda extends AppCompatActivity {
         Intent intent = new Intent(this, DzikirCounter.class);
         startActivity(intent);
     }
+
+    public void launchKompas(View view) {
+        Intent intent = new Intent(this, Kompas.class);
+        startActivity(intent);
+    }
 }

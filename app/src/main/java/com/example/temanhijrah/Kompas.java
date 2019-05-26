@@ -1,7 +1,6 @@
 package com.example.temanhijrah;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +11,7 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 
-public class Register extends AppCompatActivity {
+public class Kompas extends AppCompatActivity {
 
     private TextView displayDate;
     private DatePickerDialog.OnDateSetListener onDateSetListener;
@@ -20,9 +19,9 @@ public class Register extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_kompas);
 
-        displayDate = (TextView) findViewById(R.id.date_picker);
+        displayDate = (TextView) findViewById(R.id.button_date);
 
         displayDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,7 +31,7 @@ public class Register extends AppCompatActivity {
                 int month = calendar.get(Calendar.MONTH);
                 int year = calendar.get(Calendar.YEAR);
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(Register.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, onDateSetListener, day, month, year);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(Kompas.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, onDateSetListener, day, month, year);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 datePickerDialog.show();
             }
@@ -45,10 +44,6 @@ public class Register extends AppCompatActivity {
                 displayDate.setText(date);
             }
         };
-    }
 
-    public void register(View view) {
-        Intent intent = new Intent(this, registerComplete.class);
-        startActivity(intent);
     }
 }
