@@ -31,8 +31,8 @@ public class Beranda extends AppCompatActivity {
                     fragment = new FragmentHafalan();
                     break;
                 case R.id.navigation_fav:
-                    mTextMessage.setText(R.string.favorite);
-                    return true;
+                    fragment = new FragmentFavorite();
+                    break;
             }
             return loadFragment(fragment);
         }
