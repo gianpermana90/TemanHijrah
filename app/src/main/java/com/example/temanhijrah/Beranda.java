@@ -2,6 +2,7 @@ package com.example.temanhijrah;
 
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
@@ -15,10 +16,11 @@ public class Beranda extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment fragment = null;
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.home);
-                    return true;
+                    fragment = new FragmentMain();
+                    break;
                 case R.id.navigation_quran:
                     mTextMessage.setText(R.string.quran);
                     return true;
@@ -32,7 +34,7 @@ public class Beranda extends AppCompatActivity {
                     mTextMessage.setText(R.string.favorite);
                     return true;
             }
-            return false;
+            return loadFragment(fragment);
         }
     };
 
@@ -40,9 +42,21 @@ public class Beranda extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beranda);
+
+        loadFragment(new FragmentMain());
         BottomNavigationView navView = findViewById(R.id.nav_view);
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+    private boolean loadFragment(Fragment fragment){
+        if (fragment != null){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
+    }
 }
