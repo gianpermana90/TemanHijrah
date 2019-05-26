@@ -1,11 +1,13 @@
 package com.example.temanhijrah;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 public class Beranda extends AppCompatActivity {
@@ -58,5 +60,10 @@ public class Beranda extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    public void launchDzikir(View view) {
+        Intent intent = new Intent(this, DzikirCounter.class);
+        startActivity(intent);
     }
 }
