@@ -28,8 +28,8 @@ public class Beranda extends AppCompatActivity {
                     fragment = new FragmentDoa();
                     break;
                 case R.id.navigation_hafalan:
-                    mTextMessage.setText(R.string.hafalan);
-                    return true;
+                    fragment = new FragmentHafalan();
+                    break;
                 case R.id.navigation_fav:
                     mTextMessage.setText(R.string.favorite);
                     return true;
