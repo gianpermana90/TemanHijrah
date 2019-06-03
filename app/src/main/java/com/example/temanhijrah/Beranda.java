@@ -53,6 +53,7 @@ public class Beranda extends AppCompatActivity {
 
     private boolean loadFragment(Fragment fragment){
         if (fragment != null){
+
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fragment_container, fragment)
