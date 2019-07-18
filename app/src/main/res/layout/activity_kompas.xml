@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,49 +19,99 @@
             android:orientation="vertical"
             android:padding="30dp">
 
-            <TextView
-                android:layout_width="match_parent"
+            <TextClock
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:format24Hour="HH:mm"
                 android:fontFamily="@font/nunito_sans_bold"
-                android:text="20:19"
                 android:textColor="#FFFFFF"
                 android:textSize="28sp" />
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@drawable/tomboldaftar"
                 android:fontFamily="@font/nunito_sans_semibold"
-                android:hint="Bandung"
+                android:hint=""
                 android:textColor="@color/colorPrimary"
                 android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="30dp"
             android:orientation="vertical"
-            android:gravity="center_horizontal">
+            android:gravity="end">
 
             <Button
                 android:id="@+id/button_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/tomboldaftar"
-                android:text="tanggal" />
+                android:text="tanggal"
+                android:layout_gravity="center_horizontal" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:fontFamily="@font/nunito_sans_semibold"
                 android:text="@string/kiblat"
+                android:layout_gravity="center_horizontal"
                 android:textColor="@color/textPrimary"
                 android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/compass">
+
+                <RelativeLayout
+                    android:id="@+id/compass_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/ic_kompas"
+                        android:layout_centerInParent="true" />
+
+                    <LinearLayout
+                        android:id="@+id/compass_pointer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/pointer"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_below="@id/core_circle"
+                            app:srcCompat="@drawable/ic_point_arrow" />
+
+                        <ImageView
+                            android:id="@+id/core_circle"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_margin="10dp"
+                            app:srcCompat="@drawable/ic_ellipse" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_below="@id/core_circle"
+                            app:srcCompat="@drawable/ic_point_arrow"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -77,9 +128,10 @@
                         android:fontFamily="@font/nunito_sans_semibold"
                         android:textSize="14sp"/>
                     <TextView
+                        android:id="@+id/time_imsak"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="04:10"
+                        android:text="--:--"
                         android:textColor="@color/textPrimary"
                         android:fontFamily="@font/nunito_sans_semibold"
                         android:textSize="14sp"/>
@@ -105,9 +157,10 @@
                         android:fontFamily="@font/nunito_sans_semibold"
                         android:textSize="14sp"/>
                     <TextView
+                        android:id="@+id/time_subuh"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="04:20"
+                        android:text="--:--"
                         android:textColor="@color/textPrimary"
                         android:fontFamily="@font/nunito_sans_semibold"
                         android:textSize="14sp"/>
@@ -132,9 +185,10 @@
                         android:fontFamily="@font/nunito_sans_semibold"
                         android:textSize="14sp"/>
                     <TextView
+                        android:id="@+id/time_dzuhur"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="11:20"
+                        android:text="--:--"
                         android:textColor="@color/textPrimary"
                         android:fontFamily="@font/nunito_sans_semibold"
                         android:textSize="14sp"/>
@@ -159,9 +213,10 @@
                         android:fontFamily="@font/nunito_sans_semibold"
                         android:textSize="14sp"/>
                     <TextView
+                        android:id="@+id/time_ashar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="15:20"
+                        android:text="--:--"
                         android:textColor="@color/textPrimary"
                         android:fontFamily="@font/nunito_sans_semibold"
                         android:textSize="14sp"/>
@@ -186,9 +241,10 @@
                         android:fontFamily="@font/nunito_sans_semibold"
                         android:textSize="14sp"/>
                     <TextView
+                        android:id="@+id/time_maghrib"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="17:20"
+                        android:text="--:--"
                         android:textColor="@color/textPrimary"
                         android:fontFamily="@font/nunito_sans_semibold"
                         android:textSize="14sp"/>
@@ -213,9 +269,10 @@
                         android:fontFamily="@font/nunito_sans_semibold"
                         android:textSize="14sp"/>
                     <TextView
+                        android:id="@+id/time_isya"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="19:20"
+                        android:text="--:--"
                         android:textColor="@color/textPrimary"
                         android:fontFamily="@font/nunito_sans_semibold"
                         android:textSize="14sp"/>
@@ -226,6 +283,7 @@
                         android:tint="@color/textPrimary"/>
                 </LinearLayout>
             </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
 

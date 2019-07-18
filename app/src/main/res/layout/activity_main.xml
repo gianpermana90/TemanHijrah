@@ -10,7 +10,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="30dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="30dp"
@@ -20,6 +19,7 @@
             android:id="@+id/teman_hijrah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:fontFamily="@font/nunito_sans_bold"
             android:text="@string/teman_hijrah"
             android:textAlignment="center"
@@ -34,6 +34,7 @@
             android:id="@+id/logo"
             android:layout_width="match_parent"
             android:layout_gravity="center"
+            android:layout_marginHorizontal="30dp"
             android:layout_height="0dp"
             android:layout_weight="1">
 
@@ -55,7 +56,6 @@
         </RelativeLayout>
 
         <LinearLayout
-            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -64,6 +64,8 @@
                 style="?android:attr/buttonBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/tomboldaftar"
                 android:fontFamily="@font/nunito_sans_semibold"
                 android:text="@string/daftar"
@@ -80,6 +82,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/tombolmasuk"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="10dp"
                 android:fontFamily="@font/nunito_sans_bold"
                 android:text="@string/masuk"
                 android:textAllCaps="false"
@@ -91,7 +95,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp">
             <TextView
                 android:id="@+id/opsimasuk"
                 android:layout_width="wrap_content"
@@ -109,8 +114,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            style="?android:attr/buttonBarButtonStyle">
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -120,6 +126,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:padding="15dp"
                     android:src="@drawable/google"/>
             </LinearLayout>
 

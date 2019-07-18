@@ -5,7 +5,7 @@
     <string name="masuk">Masuk</string>
     <string name="atau_masuk_dengan">Atau masuk dengan</string>
     <string name="app_logo">app logo</string>
-    <string name="caligraphy">caligraphy</string>
+    <string name="caligraphy">calligraphy</string>
     <string name="daftar_akun">Daftar Akun</string>
     <string name="nama">Nama</string>
     <string name="email">Email</string>
@@ -69,6 +69,11 @@
     <string name="maghrib">Maghrib</string>
     <string name="imsak">Imsak</string>
     <string name="surah">Surah</string>
+    <string name="username">username</string>
+    <string name="requiredfield">Bagian ini harus diisi</string>
+    <string name="password_tidak_sama">Password tidak sama</string>
+    <string name="empty_field_message">Lengkapi seluruh form</string>
+    <string name="pengaturan">Pengaturan</string>
 
     <string-array name="dzikir_array">
         <item>Tasbih</item>
@@ -76,4 +81,14 @@
         <item>Takbir</item>
         <item>Tahlil</item>
     </string-array>
+
+    <string name="url_api_main">http://192.168.0.101:8000/api/v1/</string>
+    <string name="arrow_point">arrow_point</string>
+    <string name="compass">compass</string>
+    <string name="menjelang_waktu_shalat">Menjelang Waktu Shalat</string>
+    <string name="jam">jam</string>
+    <string name="menit_lagi">menit lagi</string>
+    <string name="location_icon">location icon</string>
+    <string name="ashar">Ashar</string>
+    <string name="isya">Isya</string>
 </resources>

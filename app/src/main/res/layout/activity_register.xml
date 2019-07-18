@@ -24,6 +24,16 @@
             android:textColor="#27AE60"
             android:textSize="36sp" />
 
+        <TextView
+            android:id="@+id/error_fiald_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_sans_semibold"
+            android:text="@string/empty_field_message"
+            android:textColor="#EE0024"
+            android:textSize="14sp"
+            android:visibility="invisible" />
+
         <LinearLayout
             android:id="@+id/register_form"
             android:layout_width="match_parent"
@@ -53,7 +63,9 @@
                     android:ems="10"
                     android:hint="@string/nama_lengkap"
                     android:inputType="textPersonName"
-                    android:textColor="#27AE60" />
+                    android:textColor="#27AE60"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@color/colorPrimary" />
             </LinearLayout>
 
             <LinearLayout
@@ -78,7 +90,9 @@
                     android:ems="10"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
-                    android:textColor="#27AE60" />
+                    android:textColor="#27AE60"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@color/colorPrimary" />
 
             </LinearLayout>
 
@@ -112,7 +126,6 @@
                         android:textAlignment="textStart"
                         android:textAllCaps="false"
                         android:textColor="#C4C4C4" />
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -130,6 +143,7 @@
                         android:textColor="#6F6F6F" />
 
                     <RadioGroup
+                        android:id="@+id/radio_gender"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -140,7 +154,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/nunito_sans_bold"
                             android:text="@string/pria"
-                            android:textColor="@color/colorPrimary" />
+                            android:textColor="@color/colorPrimary"
+                            android:buttonTint="@color/colorPrimary" />
 
                         <RadioButton
                             android:id="@+id/radio_wanita"
@@ -148,7 +163,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/nunito_sans_bold"
                             android:text="@string/wanita"
-                            android:textColor="@color/colorPrimary" />
+                            android:textColor="@color/colorPrimary"
+                            android:buttonTint="@color/colorPrimary" />
                     </RadioGroup>
                 </LinearLayout>
             </LinearLayout>
@@ -175,7 +191,9 @@
                     android:ems="10"
                     android:hint="@string/password"
                     android:inputType="textPassword"
-                    android:textColor="#27AE60" />
+                    android:textColor="#27AE60"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@color/colorPrimary" />
             </LinearLayout>
 
             <LinearLayout
@@ -200,9 +218,22 @@
                     android:ems="10"
                     android:hint="@string/confirm_password"
                     android:inputType="textPassword"
-                    android:textColor="#27AE60" />
+                    android:textColor="#27AE60"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textCursorDrawable="@color/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/error_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_sans_semibold"
+                    android:text="@string/password_tidak_sama"
+                    android:textColor="#EE0024"
+                    android:textSize="14sp"
+                    android:visibility="invisible" />
 
                 <CheckBox
+                    android:id="@+id/terms"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/colorPrimary"
