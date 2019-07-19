@@ -3,18 +3,8 @@ package com.example.temanhijrah;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.temanhijrah.userModel.ApiUserClient;
-import com.example.temanhijrah.userModel.ApiUserInterface;
-import com.example.temanhijrah.userModel.Result;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class forgotPassword extends AppCompatActivity {
 
@@ -29,7 +19,7 @@ public class forgotPassword extends AppCompatActivity {
         TextView emailView = (TextView) findViewById(R.id.input_email);
         String email = emailView.getText().toString();
 
-        ApiUserInterface apiUserInterface = ApiUserClient.getClient(getResources().getString(R.string.url_api_main)).create(ApiUserInterface.class);
+    /*    ApiUserInterface apiUserInterface = ApiUserClient.getClient(getResources().getString(R.string.url_api_main)).create(ApiUserInterface.class);
         Call<Result> resultCall = apiUserInterface.lupaPassword(email);
         resultCall.enqueue(new Callback<Result>() {
             @Override
@@ -38,8 +28,9 @@ public class forgotPassword extends AppCompatActivity {
                 if (response.code() == 200) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Berhasil mengirim permintaan", Toast.LENGTH_LONG);
                     toast.show();
-                    launchForgotPasswordComplete();
-                } else if (response.code() == 404) {
+      */
+        launchForgotPasswordComplete();
+        /*        } else if (response.code() == 404) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Email tidak ditmukan", Toast.LENGTH_LONG);
                     toast.show();
                 } else {
@@ -52,7 +43,7 @@ public class forgotPassword extends AppCompatActivity {
             public void onFailure(Call<Result> call, Throwable t) {
                 Log.d("DataError ", "" + t.getMessage());
             }
-        });
+        });*/
 
     }
 

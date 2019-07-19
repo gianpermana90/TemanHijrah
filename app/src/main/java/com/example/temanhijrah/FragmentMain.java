@@ -77,20 +77,20 @@ public class FragmentMain extends Fragment {
 
                                 boolean isImsak = false;
                                 String shalatSoon = "";
-                                for (int i = 0; i < jadwal.length - 1; i++) {
+                                for (int i = 0; i < jadwal.length; i++) {
                                     Date jadwalTime = timeFormat.parse(jadwal[i]);
                                     jadwalTime.setYear(now.getYear());
                                     jadwalTime.setMonth(now.getMonth());
                                     jadwalTime.setDate(now.getDate());
                                     Log.i("time", String.valueOf(jadwalTime));
                                     if (jadwalTime.after(now)) {
-                                        //Log.d("now", String.valueOf(now.getTime()));
+                                        Log.i("now", String.valueOf(now));
                                         shalatSoon = jadwal[i];
                                         setColor(i);
                                         break;
-                                    } else if (i == 4) {
+                                    } else if (i == 5) {
                                         isImsak = true;
-                                        shalatSoon = jadwal[i];
+                                        shalatSoon = jadwal[0];
                                         setColor(i);
                                     }
                                 }
@@ -116,7 +116,7 @@ public class FragmentMain extends Fragment {
                                 hoursRemaining.setText(h);
                                 minuteRemaining.setText(m);
                                 Log.i("SoonNew", shalatSoon);
-                                Log.i("nowNew", sNow);
+                                Log.i("nowNew", String.valueOf(cal.getTime()));
                             } catch (ParseException e) {
                                 e.printStackTrace();
                             }
@@ -125,6 +125,8 @@ public class FragmentMain extends Fragment {
                 }
                 Log.d("thread", "interrupted");
             } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (NullPointerException e) {
                 e.printStackTrace();
             }
         }

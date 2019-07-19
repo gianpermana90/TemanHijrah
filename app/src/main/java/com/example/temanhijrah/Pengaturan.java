@@ -16,10 +16,10 @@ public class Pengaturan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pengaturan);
 
-        Bundle bundle = getIntent().getExtras();
+        /*Bundle bundle = getIntent().getExtras();
         id = bundle.getString("id");
         name = bundle.getString("name");
-        accessToken = bundle.getString("accessToken");
+        accessToken = bundle.getString("accessToken");*/
     }
 
     public void LaunchEditProfile(View view) {
