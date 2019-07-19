@@ -15,8 +15,18 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.temanhijrah.userModel.ApiUserClient;
+import com.example.temanhijrah.userModel.ApiUserInterface;
+import com.example.temanhijrah.userModel.User;
 
 import java.util.Calendar;
+import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Register extends AppCompatActivity {
 
@@ -39,7 +49,7 @@ public class Register extends AppCompatActivity {
                 int year = calendar.get(Calendar.YEAR);
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(Register.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, onDateSetListener, day, month, year);
-                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                Objects.requireNonNull(datePickerDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 datePickerDialog.show();
             }
         });
@@ -93,8 +103,25 @@ public class Register extends AppCompatActivity {
             return;
         }
 
-        Intent intent = new Intent(this, registerComplete.class);
-        startActivity(intent);
+        ApiUserInterface apiUserInterface = ApiUserClient.getClient(getResources().getString(R.string.url_api_main)).create(ApiUserInterface.class);
+        Call<User> userCall = apiUserInterface.register(username, firstname, lastname, birthday, gender, username, "+628xx", password);
+        userCall.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                Log.d("Data ", " respon" + response.raw().toString());
+                if (response.code() == 200) {
+                    launchRegisterComplete();
+                } else {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Error occured", Toast.LENGTH_LONG);
+                    toast.show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.d("DataError ", "" + t.getMessage());
+            }
+        });
     }
 
     private boolean isAnyEmpty(String username, String password, String firstname, String gender, String birthday) {
@@ -104,5 +131,10 @@ public class Register extends AppCompatActivity {
             return (username.length() == 0 || password.length() == 0 || firstname.length() == 0 || gender.length() == 0 || birthday.length() == 0);
         }
         return true;
+    }
+
+    public void launchRegisterComplete() {
+        Intent intent = new Intent(this, registerComplete.class);
+        startActivity(intent);
     }
 }

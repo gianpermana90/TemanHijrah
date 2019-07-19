@@ -9,6 +9,17 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface ApiUserInterface {
+    @POST("register")
+    @FormUrlEncoded
+    Call<User> register(@Field("username") String username,
+                        @Field("firstname") String firstname,
+                        @Field("lastname") String lastname,
+                        @Field("birthday") String birthday,
+                        @Field("gender") String gender,
+                        @Field("email") String email,
+                        @Field("phone") String phone,
+                        @Field("password") String password);
+
     @POST("login")
     @FormUrlEncoded
     Call<User> login(@Field("username") String uname, @Field("password") String pass);
