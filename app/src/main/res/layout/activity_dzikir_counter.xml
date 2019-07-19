@@ -19,10 +19,20 @@
         </Spinner>
 
         <TextView
+            android:id="@+id/arabic_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lafal_tasbih"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:textSize="36sp"
+            android:textColor="@color/colorPrimary"
+            android:textAlignment="center" />
+
+        <TextView
             android:id="@+id/arti_dzikir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text='\"Maha Suci Allah\"'
+            android:text="@string/arti_tasbih"
             android:fontFamily="@font/nunito_sans_bold"
             android:textSize="20sp"
             android:textColor="#333333"

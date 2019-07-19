@@ -82,6 +82,16 @@
         <item>Tahlil</item>
     </string-array>
 
+    <string name="lafal_tasbih">سبحان الله</string>
+    <string name="lafal_hamdalah">ٱلحمد لله</string>
+    <string name="lafal_takbir">الله أكبر</string>
+    <string name="lafal_tahlil">لا اله الاّ الله</string>
+
+    <string name="arti_tasbih">\"Maha Suci Allah\"</string>
+    <string name="arti_hamdalah">\"Segala Puji Bagi Allah\"</string>
+    <string name="arti_takbir">\"Allah Maha Besar\"</string>
+    <string name="arti_tahlil">\"Tiada Tuhan Selain Allah\"</string>
+
     <string name="url_api_main">http://192.168.1.11:8000/api/v1/</string>
     <string name="arrow_point">arrow_point</string>
     <string name="compass">compass</string>
