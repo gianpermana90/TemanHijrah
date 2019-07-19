@@ -33,6 +33,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,7 +50,7 @@ public class FragmentMain extends Fragment {
                 while (!isInterrupted()) {
                     Log.d("thread", "not interrupted");
                     Thread.sleep(1000);
-                    FragmentMain.this.getActivity().runOnUiThread(new Runnable() {
+                    Objects.requireNonNull(FragmentMain.this.getActivity()).runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             TextView hoursRemaining = FragmentMain.this.getActivity().findViewById(R.id.hour_remain);

@@ -82,7 +82,7 @@
         <item>Tahlil</item>
     </string-array>
 
-    <string name="url_api_main">http://192.168.0.101:8000/api/v1/</string>
+    <string name="url_api_main">http://192.168.1.11:8000/api/v1/</string>
     <string name="arrow_point">arrow_point</string>
     <string name="compass">compass</string>
     <string name="menjelang_waktu_shalat">Menjelang Waktu Shalat</string>

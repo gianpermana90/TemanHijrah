@@ -82,11 +82,16 @@ public class Login extends AppCompatActivity {
                 public void onResponse(Call<User> call, Response<User> response) {
                     Log.d("Data ", " respon" + response.raw().toString());
                     User user = response.body();
-                    Result result = user.getResult();
-                    String id = result.getId();
-                    String name = result.getFirstName() + " " + result.getLastName();
-                    String accessToken = result.getAccessToken();
-                    launchBeranda(id, name, accessToken);
+                    if (response.code() == 200) {
+                        Result result = user.getResult();
+                        String id = result.getId();
+                        String name = result.getFirstName() + " " + result.getLastName();
+                        String accessToken = result.getAccessToken();
+                        launchBeranda(id, name, accessToken);
+                    } else if (response.code() / 100 == 4) {
+                        TextView error = (TextView) findViewById(R.id.not_found);
+                        error.setVisibility(View.VISIBLE);
+                    }
                 }
 
                 @Override

@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_gravity="center"
             android:layout_marginHorizontal="30dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <ImageView
@@ -43,13 +43,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/app_logo"
-                app:srcCompat="@drawable/ic_exclude"
-                android:layout_centerInParent="true"/>
+                app:srcCompat="@drawable/ic_exclude" />
 
             <ImageView
                 android:id="@+id/caligraphy"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
+                android:layout_marginBottom="40dp"
                 android:layout_centerInParent="true"
                 android:contentDescription="@string/caligraphy"
                 android:src="@drawable/calligraphy_40586_960_720" />
