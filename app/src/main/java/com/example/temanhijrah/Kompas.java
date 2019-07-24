@@ -98,7 +98,15 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
                 String mm = (month + 1) / 10 == 0 ? "0" + month : String.valueOf(month + 1);
                 String yyyy = String.valueOf(year);
                 String date = dd + "-" + mm + "-" + yyyy;
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                Calendar c = Calendar.getInstance();
+                try {
+                    c.setTime(sdf.parse(date));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 displayDate.setText(date);
+                getJadwal(c.getTime());
             }
         };
 
