@@ -183,6 +183,8 @@ public class FragmentMain extends Fragment {
                                 currentLat[0] = location.getLatitude();
                                 currentLong[0] = location.getLongitude();
                                 try {
+                                    Calendar c = Calendar.getInstance();
+
                                     Geocoder geo = new Geocoder(activity.getApplicationContext(), Locale.getDefault());
                                     Log.i("Latitude", String.valueOf(currentLat[0]));
                                     Log.i("Longitude", String.valueOf(currentLong[0]));
@@ -195,24 +197,25 @@ public class FragmentMain extends Fragment {
                                     provinsi.setText(addresses.get(0).getAdminArea());
 
                                     final String loc = addresses.get(0).getSubAdminArea();
+                                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                                    String time = sdf.format(c.getTime());
 
                                     ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-                                    Call<Items> call = apiInterface.getJadwalSholat(loc);
+                                    Call<Items> call = apiInterface.getJadwalSholat(loc, time);
                                     call.enqueue(new Callback<Items>() {
                                         @Override
                                         public void onResponse(Call<Items> call, Response<Items> response) {
                                             Log.d("Data ", " respon" + response.toString());
-                                            List<Jadwal> jadwal = response.body().getItems();
+                                            Jadwal jadwal = response.body().getData();
                                             Log.d("respon data ", "" + new Gson().toJson(jadwal));
 
                                             if (jadwal != null) {
-                                                String zuhur = jadwal.get(0).getZuhur();
-                                                String ashar = jadwal.get(0).getAshar();
-                                                String magrib = jadwal.get(0).getMaghrib();
-                                                String isya = jadwal.get(0).getIsya();
-                                                String subuh = jadwal.get(0).getFajar();
-                                                String imsak = jadwal.get(0).getImsak();
-                                                String tanggal = jadwal.get(0).getTanggal();
+                                                String zuhur = jadwal.getDhuhr();
+                                                String ashar = jadwal.getAsr();
+                                                String magrib = jadwal.getMaghrib();
+                                                String isya = jadwal.getIsha();
+                                                String subuh = jadwal.getFajr();
+                                                String imsak = jadwal.getImsak();
                                                 Log.d("respon :", "" + zuhur);
                                                 TextView txtDzuhur = activity.findViewById(R.id.time_dzuhur);
                                                 txtDzuhur.setText(zuhur);

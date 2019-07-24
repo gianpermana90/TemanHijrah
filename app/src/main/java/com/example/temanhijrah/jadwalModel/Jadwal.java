@@ -1,98 +1,152 @@
 package com.example.temanhijrah.jadwalModel;
 
-import android.util.Log;
-
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 public class Jadwal {
-    @SerializedName("date_for")
-    private String tanggal;
-    @SerializedName("fajr")
-    private String fajar;
-    @SerializedName("shurooq")
-    private String subuh;
-    @SerializedName("dhuhr")
-    private String zuhur;
-    @SerializedName("asr")
-    private String ashar;
-    @SerializedName("maghrib")
+
+    @SerializedName("Fajr")
+    @Expose
+    private String fajr;
+    @SerializedName("Sunrise")
+    @Expose
+    private String sunrise;
+    @SerializedName("Dhuhr")
+    @Expose
+    private String dhuhr;
+    @SerializedName("Asr")
+    @Expose
+    private String asr;
+    @SerializedName("Sunset")
+    @Expose
+    private String sunset;
+    @SerializedName("Maghrib")
+    @Expose
     private String maghrib;
-    @SerializedName("isha")
-    private String isya;
+    @SerializedName("Isha")
+    @Expose
+    private String isha;
+    @SerializedName("SepertigaMalam")
+    @Expose
+    private String sepertigaMalam;
+    @SerializedName("TengahMalam")
+    @Expose
+    private String tengahMalam;
+    @SerializedName("DuapertigaMalam")
+    @Expose
+    private String duapertigaMalam;
+    @SerializedName("method")
+    @Expose
+    private List<String> method = null;
 
-    public String getTanggal() {
-        return tanggal;
+    public String getFajr() {
+        return fajr;
     }
 
-    public String getImsak() {
-        int imsakTime = convertToInt(fajar);
-        imsakTime -= 10;
-        return convertMinutesToString(imsakTime);
+    public void setFajr(String fajr) {
+        this.fajr = fajr;
     }
 
-    public String getFajar() {
-        return convert(fajar);
+    public String getSunrise() {
+        return sunrise;
     }
 
-    public String getSubuh() {
-        return convert(subuh);
+    public void setSunrise(String sunrise) {
+        this.sunrise = sunrise;
     }
 
-    public String getZuhur() {
-        return convert(zuhur);
+    public String getDhuhr() {
+        return dhuhr;
     }
 
-    public String getAshar() {
-        return convert(ashar);
+    public void setDhuhr(String dhuhr) {
+        this.dhuhr = dhuhr;
+    }
+
+    public String getAsr() {
+        return asr;
+    }
+
+    public void setAsr(String asr) {
+        this.asr = asr;
+    }
+
+    public String getSunset() {
+        return sunset;
+    }
+
+    public void setSunset(String sunset) {
+        this.sunset = sunset;
     }
 
     public String getMaghrib() {
-        return convert(maghrib);
+        return maghrib;
     }
 
-    public String getIsya() {
-        return convert(isya);
+    public void setMaghrib(String maghrib) {
+        this.maghrib = maghrib;
     }
 
-    private int convertToInt(String time) {
-        String[] splitByColon = time.split(":");
-        int hoursValue = Integer.parseInt(splitByColon[0]);
+    public String getIsha() {
+        return isha;
+    }
 
-        String[] splitForMins = splitByColon[1].split(" ");
+    public void setIsha(String isha) {
+        this.isha = isha;
+    }
 
-        Log.d("AM/PM", splitForMins[1]);
-        if (splitForMins[1].equals("pm")) {
-            hoursValue = hoursValue + 12;
+    public String getSepertigaMalam() {
+        return sepertigaMalam;
+    }
+
+    public void setSepertigaMalam(String sepertigaMalam) {
+        this.sepertigaMalam = sepertigaMalam;
+    }
+
+    public String getTengahMalam() {
+        return tengahMalam;
+    }
+
+    public void setTengahMalam(String tengahMalam) {
+        this.tengahMalam = tengahMalam;
+    }
+
+    public String getDuapertigaMalam() {
+        return duapertigaMalam;
+    }
+
+    public void setDuapertigaMalam(String duapertigaMalam) {
+        this.duapertigaMalam = duapertigaMalam;
+    }
+
+    public List<String> getMethod() {
+        return method;
+    }
+
+    public void setMethod(List<String> method) {
+        this.method = method;
+    }
+
+    public String getImsak() {
+        String myTime = getFajr();
+        SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+        Date d = null;
+        try {
+            d = df.parse(myTime);
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(d);
+        cal.add(Calendar.MINUTE, 10);
+        String newTime = df.format(cal.getTime());
 
-        int minutesValue = Integer.parseInt(splitForMins[0]);
-
-        return 60 * hoursValue + minutesValue;
-    }
-
-    private String convertMinutesToString(int minutes) {
-        int hours = minutes / 60;
-        int minute = minutes % 60;
-
-        String hourString;
-        String minuteString;
-
-        if (hours / 10 == 0) {
-            hourString = "0" + hours;
-        } else {
-            hourString = String.valueOf(hours);
-        }
-
-        if (minute / 10 == 0) {
-            minuteString = "0" + minute;
-        } else {
-            minuteString = String.valueOf(minute);
-        }
-
-        return hourString + ":" + minuteString;
-    }
-
-    private String convert(String time) {
-        return convertMinutesToString(convertToInt(time));
+        return newTime;
     }
 }
