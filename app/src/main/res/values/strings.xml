@@ -96,8 +96,8 @@
     <string name="arrow_point">arrow_point</string>
     <string name="compass">compass</string>
     <string name="menjelang_waktu_shalat">Menjelang Waktu Shalat</string>
-    <string name="jam">jam</string>
-    <string name="menit_lagi">menit lagi</string>
+    <string name="jam">\ jam \ </string>
+    <string name="menit_lagi">\ menit lagi</string>
     <string name="location_icon">location icon</string>
     <string name="ashar">Ashar</string>
     <string name="isya">Isya</string>

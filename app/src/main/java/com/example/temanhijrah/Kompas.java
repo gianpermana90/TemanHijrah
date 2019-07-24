@@ -40,6 +40,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -110,6 +111,13 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
         super.onResume();
 
         sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION), SensorManager.SENSOR_DELAY_GAME);
+
+
+        getJadwal(Calendar.getInstance().getTime());
+
+    }
+
+    private void getJadwal(final Date c) {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             //
@@ -135,7 +143,6 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
                             currentLat[0] = location.getLatitude();
                             currentLong[0] = location.getLongitude();
                             try {
-                                Calendar c = Calendar.getInstance();
 
                                 Geocoder geo = new Geocoder(getApplicationContext(), Locale.getDefault());
                                 Log.i("Latitude", String.valueOf(currentLat[0]));
@@ -147,7 +154,7 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
                                 final String loc = addresses.get(0).getSubAdminArea();
 
                                 ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-                                Call<Items> call = apiInterface.getJadwalSholat(loc, c.getTime().toString());
+                                Call<Items> call = apiInterface.getJadwalSholat(loc, c.toString());
                                 call.enqueue(new Callback<Items>() {
                                     @Override
                                     public void onResponse(Call<Items> call, Response<Items> response) {
@@ -255,6 +262,7 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
         String prevDate = sdf.format(c.getTime());
         dateView.setText(prevDate);
         Log.i("Date", prevDate);
+        getJadwal(c.getTime());
     }
 
     public void getNextSchedule(View view) {
@@ -271,5 +279,6 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
         String prevDate = sdf.format(c.getTime());
         dateView.setText(prevDate);
         Log.i("Date", prevDate);
+        getJadwal(c.getTime());
     }
 }
