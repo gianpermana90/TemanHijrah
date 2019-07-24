@@ -35,11 +35,15 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Calendar calendar = Calendar.getInstance();
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-                int month = calendar.get(Calendar.MONTH);
                 int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(Register.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, onDateSetListener, day, month, year);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        Register.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        onDateSetListener,
+                        year, month, day);
                 Objects.requireNonNull(datePickerDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 datePickerDialog.show();
             }
@@ -48,7 +52,7 @@ public class Register extends AppCompatActivity {
         onDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                String date = dayOfMonth + "/" + (month + 1) + "/" + year;
+                String date = dayOfMonth + "-" + (month + 1) + "-" + year;
                 displayDate.setText(date);
             }
         };

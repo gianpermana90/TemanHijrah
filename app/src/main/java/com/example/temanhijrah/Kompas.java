@@ -37,6 +37,8 @@ import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
@@ -61,6 +63,14 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
         setContentView(R.layout.activity_kompas);
 
         displayDate = findViewById(R.id.button_date);
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH);
+        int year = calendar.get(Calendar.YEAR);
+        String dd = day / 10 == 0 ? "0" + day : String.valueOf(day);
+        String mm = (month + 1) / 10 == 0 ? "0" + (month + 1) : String.valueOf(month + 1);
+        String yyyy = String.valueOf(year);
+        displayDate.setText(dd + "-" + mm + "-" + yyyy);
 
         displayDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +80,11 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
                 int month = calendar.get(Calendar.MONTH);
                 int year = calendar.get(Calendar.YEAR);
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(Kompas.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, onDateSetListener, day, month, year);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        Kompas.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        onDateSetListener,
+                        year, month, day);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 datePickerDialog.show();
             }
@@ -79,11 +93,13 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
         onDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                String date = dayOfMonth + "/" + (month + 1) + "/" + year;
+                String dd = dayOfMonth / 10 == 0 ? "0" + dayOfMonth : String.valueOf(dayOfMonth);
+                String mm = (month + 1) / 10 == 0 ? "0" + month : String.valueOf(month + 1);
+                String yyyy = String.valueOf(year);
+                String date = dd + "-" + mm + "-" + yyyy;
                 displayDate.setText(date);
             }
         };
-
 
         compass = findViewById(R.id.compass_pointer);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -222,5 +238,37 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
+    }
+
+    public void getPrevSchedule(View view) {
+        TextView dateView = (TextView) findViewById(R.id.button_date);
+        String date = dateView.getText().toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar c = Calendar.getInstance();
+        try {
+            c.setTime(sdf.parse(date));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        c.add(Calendar.DAY_OF_MONTH, -1);
+        String prevDate = sdf.format(c.getTime());
+        dateView.setText(prevDate);
+        Log.i("Date", prevDate);
+    }
+
+    public void getNextSchedule(View view) {
+        TextView dateView = (TextView) findViewById(R.id.button_date);
+        String date = dateView.getText().toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar c = Calendar.getInstance();
+        try {
+            c.setTime(sdf.parse(date));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        c.add(Calendar.DAY_OF_MONTH, 1);
+        String prevDate = sdf.format(c.getTime());
+        dateView.setText(prevDate);
+        Log.i("Date", prevDate);
     }
 }

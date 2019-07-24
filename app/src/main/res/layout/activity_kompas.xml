@@ -44,13 +44,54 @@
             android:orientation="vertical"
             android:gravity="end">
 
-            <Button
-                android:id="@+id/button_date"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/tomboldaftar"
-                android:text="tanggal"
-                android:layout_gravity="center_horizontal" />
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:id="@+id/prev_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:padding="15dp"
+                    android:background="@drawable/tomboldaftar"
+                    android:onClick="getPrevSchedule"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/prev" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/button_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/tomboldaftar"
+                    android:text="--:--:----"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="5dp" />
+
+                <LinearLayout
+                    android:id="@+id/next_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:padding="15dp"
+                    android:background="@drawable/tomboldaftar"
+                    android:onClick="getNextSchedule"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/next" />
+                </LinearLayout>
+            </LinearLayout>
+
 
             <TextView
                 android:layout_width="wrap_content"

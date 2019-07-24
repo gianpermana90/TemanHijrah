@@ -14,7 +14,7 @@
     <string name="jenis_kelamin">Jenis Kelamin</string>
     <string name="pria">Pria</string>
     <string name="wanita">Wanita</string>
-    <string name="date_pick">dd/mm/yy</string>
+    <string name="date_pick">dd-mm-yy</string>
     <string name="password">Kata Sandi</string>
     <string name="confirm_password">Ulang Kata Sandi</string>
     <string name="terms_and_condition"><u>Setujui ketentuan layanan dan kebijakan privasi</u></string>
@@ -103,4 +103,6 @@
     <string name="isya">Isya</string>
     <string name="no_telp">No. Telp</string>
     <string name="nomor_handphone">Nomor handphone</string>
+    <string name="prev"><![CDATA[<]]></string>
+    <string name="next"><![CDATA[>]]></string>
 </resources>
