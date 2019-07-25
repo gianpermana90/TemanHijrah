@@ -84,7 +84,7 @@
             android:fontFamily="@font/nunito_sans_bold"
             android:textAllCaps="false"
             android:textSize="16sp"
-            android:onClick="launchPengaturan" />
+            android:onClick="editProfil" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

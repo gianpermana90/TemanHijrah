@@ -30,4 +30,8 @@ public interface ApiUserInterface {
 
     @GET("lupaPassword/{email}")
     Call<Result> lupaPassword(@Path("email") String email);
+
+    @PUT("updateUser/{id}")
+    @FormUrlEncoded
+    Call<Result> editProfil(@Path("id") String id, @Field("firstname") String name, @Field("email") String email);
 }
