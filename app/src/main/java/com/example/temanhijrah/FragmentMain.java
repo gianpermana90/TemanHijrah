@@ -91,7 +91,7 @@ public class FragmentMain extends Fragment {
                                     } else if (i == 5) {
                                         isImsak = true;
                                         shalatSoon = jadwal[0];
-                                        setColor(i);
+                                        setColor(0);
                                     }
                                 }
                                 int hours, mins;

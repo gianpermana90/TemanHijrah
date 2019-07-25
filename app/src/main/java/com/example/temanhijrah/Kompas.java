@@ -320,17 +320,18 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
 
     public void setAlarm(Calendar c, int requestCode) {
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        Intent intent = new Intent(getBaseContext(), AlarmReceiver.class);
+        Intent intent = new Intent(this, AlarmReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, requestCode, intent, 0);
+        intentArray.add(pendingIntent);
 
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(System.currentTimeMillis());
         cal.set(Calendar.HOUR_OF_DAY, c.getTime().getHours());
         cal.set(Calendar.MINUTE, c.getTime().getMinutes());
 
-        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+        alarmManager.set(AlarmManager.RTC_WAKEUP,
                 cal.getTimeInMillis(),
-                pendingIntent);
-        Log.i("Next Alarm will be in:", cal.getTime().toString());
+                intentArray.get(intentArray.indexOf(pendingIntent)));
+        Log.i("Next Alarm will be in:", String.valueOf(System.currentTimeMillis()));
     }
 }
