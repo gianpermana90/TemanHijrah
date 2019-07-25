@@ -15,9 +15,18 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.temanhijrah.userModel.ApiUserClient;
+import com.example.temanhijrah.userModel.ApiUserInterface;
+import com.example.temanhijrah.userModel.User;
 
 import java.util.Calendar;
 import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Register extends AppCompatActivity {
 
@@ -98,15 +107,15 @@ public class Register extends AppCompatActivity {
             return;
         }
 
-        /*ApiUserInterface apiUserInterface = ApiUserClient.getClient(getResources().getString(R.string.url_api_main)).create(ApiUserInterface.class);
+        ApiUserInterface apiUserInterface = ApiUserClient.getClient(getResources().getString(R.string.url_api_main)).create(ApiUserInterface.class);
         Call<User> userCall = apiUserInterface.register(username, firstname, lastname, birthday, gender, username, "+628xx", password);
         userCall.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 Log.d("Data ", " respon" + response.raw().toString());
-                if (response.code() == 200) {*/
+                if (response.code() == 200) {
                     launchRegisterComplete();
-/*                } else {
+                } else {
                     Toast toast = Toast.makeText(getApplicationContext(), "Error occured", Toast.LENGTH_LONG);
                     toast.show();
                 }
@@ -116,7 +125,7 @@ public class Register extends AppCompatActivity {
             public void onFailure(Call<User> call, Throwable t) {
                 Log.d("DataError ", "" + t.getMessage());
             }
-        });*/
+        });
     }
 
     private boolean isAnyEmpty(String username, String password, String firstname, String gender, String birthday) {

@@ -1,7 +1,10 @@
 package com.example.temanhijrah;
 
 import android.Manifest;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -39,6 +42,7 @@ import com.google.gson.internal.LinkedTreeMap;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -49,6 +53,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Kompas extends AppCompatActivity implements SensorEventListener {
+    ArrayList<PendingIntent> intentArray = new ArrayList<PendingIntent>();
+    private final int REQUEST_ZUHUR = 0;
+    private final int REQUEST_ASHR = 1;
+    private final int REQUEST_MAGHRIB = 2;
+    private final int REQUEST_ISHA = 3;
+    private final int REQUEST_IMSAK = 4;
+    private final int REQUEST_FAJR = 5;
+
 
     private TextView displayDate;
     private DatePickerDialog.OnDateSetListener onDateSetListener;
@@ -57,6 +69,7 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
     private Double kiblatDegree;
     private float DegreeStart = 0f;
     private LinearLayout compass;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +125,8 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
 
         compass = findViewById(R.id.compass_pointer);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+
+        getJadwal(Calendar.getInstance().getTime());
     }
 
     @Override
@@ -119,10 +134,6 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
         super.onResume();
 
         sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION), SensorManager.SENSOR_DELAY_GAME);
-
-
-        getJadwal(Calendar.getInstance().getTime());
-
     }
 
     private void getJadwal(final Date c) {
@@ -172,11 +183,17 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
 
                                         if (jadwal != null) {
                                             String zuhur = jadwal.getDhuhr();
+                                            setAlarm(convStrToDate(zuhur), REQUEST_ZUHUR);
                                             String ashar = jadwal.getAsr();
+                                            setAlarm(convStrToDate(ashar), REQUEST_ASHR);
                                             String magrib = jadwal.getMaghrib();
+                                            setAlarm(convStrToDate(magrib), REQUEST_MAGHRIB);
                                             String isya = jadwal.getIsha();
+                                            setAlarm(convStrToDate(isya), REQUEST_ISHA);
                                             String subuh = jadwal.getFajr();
+                                            setAlarm(convStrToDate(subuh), REQUEST_FAJR);
                                             String imsak = jadwal.getImsak();
+                                            setAlarm(convStrToDate(imsak), REQUEST_IMSAK);
                                             Log.d("respon :", "" + zuhur);
                                             TextView txtDzuhur = findViewById(R.id.time_dzuhur);
                                             txtDzuhur.setText(zuhur);
@@ -228,6 +245,17 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
                         }
                     }
                 });
+    }
+
+    private Calendar convStrToDate(String strDate) {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        Calendar calendar = Calendar.getInstance();
+        try {
+            calendar.setTime(sdf.parse(strDate));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return calendar;
     }
 
     @Override
@@ -288,5 +316,21 @@ public class Kompas extends AppCompatActivity implements SensorEventListener {
         dateView.setText(prevDate);
         Log.i("Date", prevDate);
         getJadwal(c.getTime());
+    }
+
+    public void setAlarm(Calendar c, int requestCode) {
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        Intent intent = new Intent(getBaseContext(), AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, requestCode, intent, 0);
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(System.currentTimeMillis());
+        cal.set(Calendar.HOUR_OF_DAY, c.getTime().getHours());
+        cal.set(Calendar.MINUTE, c.getTime().getMinutes());
+
+        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                cal.getTimeInMillis(),
+                pendingIntent);
+        Log.i("Next Alarm will be in:", cal.getTime().toString());
     }
 }

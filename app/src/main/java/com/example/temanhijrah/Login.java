@@ -3,11 +3,19 @@ package com.example.temanhijrah;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.temanhijrah.userModel.ApiUserClient;
+import com.example.temanhijrah.userModel.ApiUserInterface;
+import com.example.temanhijrah.userModel.Result;
+import com.example.temanhijrah.userModel.User;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Login extends AppCompatActivity {
 
@@ -29,16 +37,16 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void launchBeranda(/*String id, String name, String accessToken*/) {
+    public void launchBeranda(String id, String name, String accessToken) {
 
         Intent intent = new Intent(this, Beranda.class);
-        /*Bundle bundle = new Bundle();
+        Bundle bundle = new Bundle();
         bundle.putString("id", id);
         bundle.putString("name", name);
         bundle.putString("accessToken", accessToken);
         intent.putExtras(bundle);
         FragmentMain fragmentMain = new FragmentMain();
-        fragmentMain.setArguments(bundle);*/
+        fragmentMain.setArguments(bundle);
 
         startActivity(intent);
     }
@@ -66,7 +74,7 @@ public class Login extends AppCompatActivity {
                 requiredPass.setVisibility(View.INVISIBLE);
             }
             return;
-        } else {/*
+        } else {
             ApiUserInterface apiUserInterface = ApiUserClient.getClient(getResources().getString(R.string.url_api_main)).create(ApiUserInterface.class);
             final Call<User> u = apiUserInterface.login(username, password);
             u.enqueue(new Callback<User>() {
@@ -79,9 +87,9 @@ public class Login extends AppCompatActivity {
                         String id = result.getId();
                         String name = result.getFirstName() + " " + result.getLastName();
                         String accessToken = result.getAccessToken();
-                   */
-            launchBeranda(/*id, name, accessToken*/);
-                 /*   } else if (response.code() / 100 == 4) {
+
+                        launchBeranda(id, name, accessToken);
+                    } else if (response.code() / 100 == 4) {
                         TextView error = (TextView) findViewById(R.id.not_found);
                         error.setVisibility(View.VISIBLE);
                     }
@@ -91,7 +99,7 @@ public class Login extends AppCompatActivity {
                 public void onFailure(Call<User> call, Throwable t) {
                     Log.d("DataError ", "" + t.getMessage());
                 }
-            });*/
+            });
             /*Call<Result> user = apiUserInterface.login(username,password);
             user.enqueue(new Callback<Result>() {
                 @Override

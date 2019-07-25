@@ -3,9 +3,19 @@ package com.example.temanhijrah;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.temanhijrah.userModel.ApiUserClient;
+import com.example.temanhijrah.userModel.ApiUserInterface;
+import com.example.temanhijrah.userModel.Result;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class UbahPassword extends AppCompatActivity {
 
@@ -17,11 +27,11 @@ public class UbahPassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ubah_password);
-/*
+
         Bundle bundle = getIntent().getExtras();
         id = bundle.getString("id");
         name = bundle.getString("name");
-        accessToken = bundle.getString("accessToken");*/
+        accessToken = bundle.getString("accessToken");
     }
 
 
@@ -40,16 +50,16 @@ public class UbahPassword extends AppCompatActivity {
             return;
         }
 
-        /*ApiUserInterface apiUserInterface = ApiUserClient.getClient(getResources().getString(R.string.url_api_main)).create(ApiUserInterface.class);
+        ApiUserInterface apiUserInterface = ApiUserClient.getClient(getResources().getString(R.string.url_api_main)).create(ApiUserInterface.class);
         Call<Result> user = apiUserInterface.gantiPassword(id, newPass, accessToken);
         user.enqueue(new Callback<Result>() {
             @Override
             public void onResponse(Call<Result> call, Response<Result> response) {
                 Log.d("Data ", " respon" + response.toString());
                 if (response.code() == 200) {
-                    Toast.makeText(getApplicationContext(), "Sukses mengganti password", Toast.LENGTH_SHORT).show();*/
+                    Toast.makeText(getApplicationContext(), "Sukses mengganti password", Toast.LENGTH_SHORT).show();
                     launchPengaturan();
-/*                }
+                }
             }
 
             @Override
@@ -57,7 +67,7 @@ public class UbahPassword extends AppCompatActivity {
                 Log.d("DataError ", "" + t.getMessage());
             }
         });
-*/
+
 
     }
 

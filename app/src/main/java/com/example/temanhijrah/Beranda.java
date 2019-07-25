@@ -64,12 +64,12 @@ public class Beranda extends AppCompatActivity implements FragmentChangeListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beranda);
 
-        /*Bundle bundle = getIntent().getExtras();
+        Bundle bundle = getIntent().getExtras();
         id = bundle.getString("id");
         name = bundle.getString("name");
         accessToken = bundle.getString("accessToken");
         String msg = id != null ? id : "null";
-        Log.i("id", msg);*/
+        Log.i("id", msg);
 
         loadFragment(new FragmentMain());
         BottomNavigationView navView = findViewById(R.id.nav_view);
@@ -92,11 +92,11 @@ public class Beranda extends AppCompatActivity implements FragmentChangeListener
         switch (item.getItemId()) {
             case R.id.pengaturan:
                 Intent intent = new Intent(this, Pengaturan.class);
-                /*Bundle bundle = new Bundle();
+                Bundle bundle = new Bundle();
                 bundle.putString("id", id);
                 bundle.putString("name", name);
                 bundle.putString("accessToken", accessToken);
-                intent.putExtras(bundle);*/
+                intent.putExtras(bundle);
                 startActivity(intent);
                 return true;
 
