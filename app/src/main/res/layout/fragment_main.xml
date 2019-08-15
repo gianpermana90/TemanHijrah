@@ -67,7 +67,7 @@
                     android:layout_margin="15dp"
                     android:layout_weight="1"
                     android:layout_below="@id/space"
-                    android:background="@drawable/union"
+                    android:background="@drawable/union_png"
                     android:onClick="launchKompas"
                     android:orientation="vertical"
                     tools:ignore="OnClick">

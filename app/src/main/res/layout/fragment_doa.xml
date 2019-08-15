@@ -1,19 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout
+    android:id="@+id/doa_container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FragmentDoa">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+        <ImageButton
+            android:id="@+id/btn_doa_harian"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/btn_doa_harian"/>
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/doa" />
+            android:text="@string/doa_harian"
+            android:layout_marginBottom="20dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="-20dp"
+            android:textColor="@color/colorPrimary"/>
+
+        <ImageButton
+            android:id="@+id/btn_bacaan_sholat"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/btn_bacaan_sholat"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bacaan_sholat"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="-20dp"
+            android:textColor="@color/colorPrimary"/>
 
     </LinearLayout>
 

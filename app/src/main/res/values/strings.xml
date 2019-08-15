@@ -106,7 +106,7 @@
     <string name="next"><![CDATA[>]]></string>
 
     <!-- API BASE URL -->
-    <string name="url_api_main">http://192.168.0.101:8000/api/v1/</string>
+    <string name="url_api_main">http://192.168.43.149:8000/api/v1/</string>
     <string name="channelName">Waktu Shalat</string>
     <string name="channel_description">Segera Shalat</string>
 </resources>

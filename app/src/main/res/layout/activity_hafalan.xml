@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".giantplay.ui.activity.HafalanActivity"
+    android:layout_margin="30dp">
+
+    <TextView
+        android:id="@+id/txt_rekam"
+        android:text="@string/rekam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fontFamily="sans-serif-black"
+        android:textSize="20sp"
+        android:lineSpacingExtra="8sp"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        />
+
+    <TextView
+        android:id="@+id/txt_hafalan_surah"
+        android:layout_below="@id/txt_rekam"
+        android:text="@string/surah_albaqarah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fontFamily="sans-serif-black"
+        android:textSize="20sp"
+        android:lineSpacingExtra="8sp"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        />
+
+    <TextView
+        android:id="@+id/txt_hafalan_translate"
+        android:layout_below="@id/txt_hafalan_surah"
+        android:text="@string/sapi_betina"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fontFamily="sans-serif-black"
+        android:textSize="14sp"
+        android:lineSpacingExtra="8sp"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:id="@+id/txt_hafalan_ayat"
+        android:layout_below="@id/txt_hafalan_translate"
+        android:text="@string/ayat_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fontFamily="sans-serif-black"
+        android:layout_marginTop="30dp"
+        android:textSize="20sp"
+        android:lineSpacingExtra="8sp"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        />
+
+    <RelativeLayout
+        android:id="@+id/layout_hafalan_duration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_hafalan_ayat"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/media_hafalan_duration_separator"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/time_separator"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/media_hafalan_duration_min"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/media_hafalan_duration_separator"
+            android:text="@string/time_null"/>
+
+        <TextView
+            android:id="@+id/media_hafalan_duration_sec"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/media_hafalan_duration_separator"
+            android:text="@string/time_null" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_hafalan_record"
+        android:layout_below="@id/layout_hafalan_duration"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_hafalan_record_active"
+            android:layout_centerInParent="true"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/ic_hafalan_mic_active" />
+
+        <Button
+            android:id="@+id/btn_hafalan_media"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/btn_hafalan_record_active"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/ic_hafalan_play" />
+
+        <RelativeLayout
+            android:id="@+id/layout_hafalan_timer"
+            android:layout_below="@id/btn_hafalan_record_active"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/media_hafalan_timer_separator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/time_separator"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/media_hafalan_timer_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/media_hafalan_timer_separator"
+                android:text="@string/time_null"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/media_hafalan_timer_sec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/media_hafalan_timer_separator"
+                android:text="@string/time_null"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btn_hafalan_delete"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/ic_hafalan_delete_inactive"
+        android:layout_marginTop="10dp"/>
+
+</RelativeLayout>

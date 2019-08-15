@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //Public
+    <string name="surah1">Al-Fatihah</string>
+    <string name="juz1">Juz 1</string>
+    <string name="time_separator">:</string>
+    <string name="time_null">00</string>
+
+    //Surah
+    <string name="ayahs">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ قُلْ أَعُوذُ بِرَبِّ النَّاس</string>
+
+    //Doa
+    <string name="doa_harian">Doa Harian</string>
+    <string name="bacaan_sholat">Bacaan Sholat</string>
+    <string name="doa_sebelum_makan">Doa Sebelum Makan</string>
+    <string name="doa_sample_1">اَللَّهُمَّ بَارِكْ لَنَا فِيْمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ</string>
+    <string name="doa_translate_1">
+        Segala puji bagi Allah yang telah menjadikan air ini (minuman) segar dan menggiatkan dengan
+        rahmat-Nya dan tidak menjadikan air ini (minuman) asin lagi pahit karena dosa-dosa kami
+    </string>
+
+    //Hafalan
+    <string name="progress_hafalan">80%</string>
+    <string name="rekam">Rekam</string>
+    <string name="suara">Suara</string>
+    <string name="surah_albaqarah">Surah Al-Baqarah</string>
+    <string name="sapi_betina">(Sapi Betina)</string>
+    <string name="ayat_1">Ayat 1</string>
+
+    //Favorit
+
+</resources>
